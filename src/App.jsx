@@ -6,133 +6,22 @@ const WHITE = "#ffffff";
 const LIGHT_GRAY = "#f7f7f5";
 const MID_GRAY = "#e8e6e1";
 
-// Drop your logo file into src/assets/ and update this import
-// import logo from './assets/logo.png'
-// For now we use a text fallback — replace with: <img src={logo} ... />
+import generalImg from './assets/general.png'
+import termiteImg from './assets/termite.png'
+import mosquitoImg from './assets/mosquito.png'
+import rodentImg from './assets/rodent.png'
+import logoImg from './assets/logo.png'
+
 const PHONE = "(904) 426-3977";
 
-const COCKROACH_SVG = `<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="100" cy="80" rx="22" ry="16" fill="FILL"/>
-  <ellipse cx="100" cy="80" rx="16" ry="11" fill="FILL2"/>
-  <ellipse cx="93" cy="76" rx="7" ry="8" fill="FILL2"/>
-  <ellipse cx="107" cy="76" rx="7" ry="8" fill="FILL2"/>
-  <circle cx="92" cy="74" r="3" fill="white"/>
-  <circle cx="108" cy="74" r="3" fill="white"/>
-  <circle cx="93" cy="74" r="1.5" fill="black"/>
-  <circle cx="109" cy="74" r="1.5" fill="black"/>
-  <path d="M90 66 Q82 50 72 40" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M112 66 Q120 50 130 40" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <ellipse cx="100" cy="150" rx="28" ry="52" fill="FILL"/>
-  <ellipse cx="100" cy="145" rx="22" ry="44" fill="FILL2"/>
-  <line x1="84" y1="122" x2="84" y2="142" stroke="STROKE2" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="100" y1="116" x2="100" y2="144" stroke="STROKE2" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="116" y1="122" x2="116" y2="142" stroke="STROKE2" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M74 112 Q50 102 28 108" stroke="STROKE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M74 130 Q48 128 24 130" stroke="STROKE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M74 150 Q50 154 28 164" stroke="STROKE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M126 112 Q150 102 172 108" stroke="STROKE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M126 130 Q152 128 176 130" stroke="STROKE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M126 150 Q150 154 172 164" stroke="STROKE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M28 108 Q18 104 12 98" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M24 130 Q14 130 8 124" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M28 164 Q18 170 14 180" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M172 108 Q182 104 188 98" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M176 130 Q186 130 192 124" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M172 164 Q182 170 186 180" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-</svg>`;
-
-const TERMITE_SVG = `<svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="100" cy="52" rx="20" ry="24" fill="FILL"/>
-  <ellipse cx="93" cy="46" rx="6" ry="7" fill="FILL2"/>
-  <ellipse cx="107" cy="46" rx="6" ry="7" fill="FILL2"/>
-  <circle cx="92" cy="44" r="2.5" fill="white"/>
-  <circle cx="108" cy="44" r="2.5" fill="white"/>
-  <circle cx="93" cy="44" r="1.2" fill="black"/>
-  <circle cx="109" cy="44" r="1.2" fill="black"/>
-  <path d="M88 30 Q80 16 72 8" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M112 30 Q120 16 128 8" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <ellipse cx="100" cy="120" rx="26" ry="30" fill="FILL"/>
-  <ellipse cx="100" cy="118" rx="20" ry="24" fill="FILL2"/>
-  <line x1="86" y1="104" x2="86" y2="118" stroke="STROKE2" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="100" y1="100" x2="100" y2="122" stroke="STROKE2" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="114" y1="104" x2="114" y2="118" stroke="STROKE2" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M76 105 Q52 96 30 102" stroke="STROKE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M75 120 Q50 120 26 120" stroke="STROKE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M124 105 Q148 96 170 102" stroke="STROKE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M125 120 Q150 120 174 120" stroke="STROKE" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M30 102 Q20 98 14 92" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M26 120 Q16 120 10 114" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M170 102 Q180 98 186 92" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M174 120 Q184 120 190 114" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <ellipse cx="100" cy="210" rx="22" ry="32" fill="FILL"/>
-  <ellipse cx="100" cy="208" rx="16" ry="26" fill="FILL2"/>
-</svg>`;
-
-const MOSQUITO_SVG = `<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="100" cy="130" rx="10" ry="28" fill="FILL"/>
-  <ellipse cx="100" cy="76" rx="14" ry="18" fill="FILL"/>
-  <ellipse cx="94" cy="70" rx="5" ry="6" fill="FILL2"/>
-  <ellipse cx="106" cy="70" rx="5" ry="6" fill="FILL2"/>
-  <circle cx="93" cy="69" r="2" fill="white"/>
-  <circle cx="107" cy="69" r="2" fill="white"/>
-  <circle cx="94" cy="69" r="1" fill="black"/>
-  <circle cx="108" cy="69" r="1" fill="black"/>
-  <path d="M100 60 Q98 44 96 28" stroke="STROKE" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M100 60 Q102 44 104 28" stroke="STROKE" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M88 82 Q60 62 24 68" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M88 88 Q60 74 22 76" stroke="STROKE" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-  <path d="M112 82 Q140 62 176 68" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M112 88 Q140 74 178 76" stroke="STROKE" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-  <path d="M90 108 Q66 120 42 140" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M110 108 Q134 120 158 140" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M90 116 Q68 130 48 154" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M110 116 Q132 130 152 154" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M100 158 Q97 178 94 200" stroke="STROKE" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M100 158 Q100 178 100 198" stroke="STROKE" stroke-width="1" fill="none" stroke-linecap="round"/>
-</svg>`;
-
-const RODENT_SVG = `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="85" cy="110" rx="60" ry="45" fill="FILL"/>
-  <ellipse cx="85" cy="106" rx="50" ry="36" fill="FILL2"/>
-  <ellipse cx="155" cy="75" rx="36" ry="32" fill="FILL"/>
-  <ellipse cx="155" cy="74" rx="28" ry="24" fill="FILL2"/>
-  <ellipse cx="142" cy="46" rx="14" ry="20" fill="FILL"/>
-  <ellipse cx="166" cy="42" rx="12" ry="18" fill="FILL"/>
-  <ellipse cx="141" cy="45" rx="10" ry="15" fill="FILL2"/>
-  <ellipse cx="166" cy="41" rx="9" ry="14" fill="FILL2"/>
-  <circle cx="162" cy="72" r="5" fill="white"/>
-  <circle cx="163" cy="71" r="2.5" fill="black"/>
-  <path d="M172 80 Q186 74 198 68" stroke="STROKE" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M174 86 Q188 85 200 84" stroke="STROKE" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M172 92 Q186 96 198 102" stroke="STROKE" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M198 68 Q206 64 210 60" stroke="STROKE" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-  <path d="M200 84 Q208 83 212 82" stroke="STROKE" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-  <path d="M198 102 Q206 106 210 110" stroke="STROKE" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-  <path d="M28 128 Q10 142 6 160 Q22 152 28 138" fill="FILL" stroke="none"/>
-  <path d="M34 136 Q16 152 14 170 Q30 160 34 146" fill="FILL2" stroke="none"/>
-</svg>`;
-
-function makeSvg(template, dark) {
-  if (dark) {
-    return template
-      .replace(/FILL2/g, "#c88500")
-      .replace(/FILL/g, "#F5A800")
-      .replace(/STROKE2/g, "#e09500")
-      .replace(/STROKE/g, "#F5A800");
-  }
-  return template
-    .replace(/FILL2/g, "#2e2e2e")
-    .replace(/FILL/g, "#1a1a1a")
-    .replace(/STROKE2/g, "#444")
-    .replace(/STROKE/g, "#1a1a1a");
-}
-
-const SVGS = {
-  general: COCKROACH_SVG,
-  termite: TERMITE_SVG,
-  mosquito: MOSQUITO_SVG,
-  rodent: RODENT_SVG,
+const PEST_IMAGES = {
+  general: generalImg,
+  termite: termiteImg,
+  mosquito: mosquitoImg,
+  rodent: rodentImg,
 };
+
+
 
 const SERVICES = [
   {
@@ -194,10 +83,11 @@ export default function App() {
   const isBad = (f) => /active|heavy|moderate|infestation|breeding|droppings/i.test(f);
   const fmt = (n) => n ? "$" + parseFloat(n).toFixed(2) : "—";
 
-  const IconEl = ({ id, dark, size = 40 }) => (
-    <span
-      style={{ display: "inline-flex", alignItems: "center", width: size, height: size }}
-      dangerouslySetInnerHTML={{ __html: makeSvg(SVGS[id], dark).replace('<svg ', `<svg width="${size}" height="${size}" `) }}
+  const IconEl = ({ id, size = 40 }) => (
+    <img
+      src={PEST_IMAGES[id]}
+      alt={id}
+      style={{ width: size, height: size, objectFit: "contain" }}
     />
   );
 
@@ -305,7 +195,7 @@ export default function App() {
             return (
               <div key={svc.id} style={s.card}>
                 <div style={s.toggle(d.included)} onClick={() => updateService(svc.id, "included", !d.included)}>
-                  <IconEl id={svc.id} dark={false} size={36} />
+                  <IconEl id={svc.id} size={36} />
                   <span style={{ fontWeight: 700, fontSize: 14, color: d.included ? BLACK : "#888" }}>{svc.label}</span>
                   <div style={s.switch(d.included)}><div style={s.knob(d.included)} /></div>
                 </div>
@@ -377,9 +267,8 @@ export default function App() {
           </div>
           <div style={ps.page} id="quote-preview">
             <div style={ps.header}>
-              {/* LOGO: Replace the div below with <img src={logo} style={{height:72}} alt="The Pest Company" /> after adding logo to src/assets/ */}
               <div>
-                <div style={ps.logoText}>The Pest Company</div>
+                <img src={logoImg} alt="The Pest Company" style={{ height: 72, width: "auto", objectFit: "contain" }} />
                 <div style={ps.logoSub}>Jacksonville, FL · License #JB500238 · pestcofl.com</div>
               </div>
               <div style={{ textAlign: "right" }}>
@@ -403,7 +292,7 @@ export default function App() {
                 return (
                   <div key={svc.id}>
                     <div style={ps.secHead}>
-                      <IconEl id={svc.id} dark={true} size={24} />
+                      <IconEl id={svc.id} size={24} />
                       {svc.label}
                     </div>
                     <div style={ps.secBody}>
