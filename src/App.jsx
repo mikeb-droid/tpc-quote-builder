@@ -145,7 +145,7 @@ export default function App() {
   return (
     <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", background: LIGHT_GRAY, minHeight: "100vh" }}>
       {/* Top Bar */}
-      <div style={s.topBar}>
+      <div style={s.topBar} className="no-print">
         <div style={s.topTitle}>⚡ TPC Quote Builder</div>
         <div style={{ display: "flex", gap: 6 }}>
           <button style={s.tab(view === "form")} onClick={() => setView("form")}>Form</button>
