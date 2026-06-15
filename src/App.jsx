@@ -261,7 +261,7 @@ export default function App() {
       {/* ── PREVIEW ── */}
       {view === "preview" && (
         <div>
-          <div style={ps.printBar}>
+          <div style={ps.printBar} className="no-print">
             <button style={ps.printBtn} onClick={() => window.print()}>🖨️ Print / Save PDF</button>
             <button style={ps.backBtn} onClick={() => setView("form")}>← Back to Edit</button>
           </div>
@@ -316,36 +316,6 @@ export default function App() {
                 );
               })}
 
-              {activeServices.length > 0 && (
-                <table style={ps.table}>
-                  <thead>
-                    <tr>
-                      <th style={ps.th}>Service</th>
-                      <th style={{ ...ps.th, textAlign: "right" }}>Initial</th>
-                      <th style={{ ...ps.th, textAlign: "right" }}>Recurring</th>
-                      <th style={{ ...ps.th, textAlign: "right" }}>Frequency</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {activeServices.map((svc) => {
-                      const d = form.services[svc.id];
-                      return (
-                        <tr key={svc.id}>
-                          <td style={ps.td}>{d.label || svc.label}</td>
-                          <td style={{ ...ps.td, textAlign: "right" }}>{fmt(d.initial)}</td>
-                          <td style={{ ...ps.td, textAlign: "right" }}>{fmt(d.recurring)}</td>
-                          <td style={{ ...ps.td, textAlign: "right", fontSize: 10, color: "#888" }}>{d.recurring ? d.freq : "—"}</td>
-                        </tr>
-                      );
-                    })}
-                    <tr style={{ background: BLACK }}>
-                      <td style={{ ...ps.td, color: WHITE, fontWeight: 800, borderBottom: "none" }}>Total Due Today</td>
-                      <td colSpan={3} style={{ ...ps.td, textAlign: "right", color: GOLD, fontSize: 16, fontWeight: 800, borderBottom: "none" }}>${totalInitial.toFixed(2)}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              )}
-
               {form.overallNotes && (
                 <div style={{ marginTop: 16, padding: "13px 15px", background: "#f9f9f7", borderRadius: 7, border: `1px solid ${MID_GRAY}` }}>
                   <div style={ps.detailLbl}>Additional Notes</div>
@@ -371,7 +341,7 @@ export default function App() {
               </div>
             </div>
           </div>
-          <style>{`@media print { body > *:not(#root) { display: none; } .print-hide { display: none !important; } #quote-preview * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }`}</style>
+          <style>{`@media print { body > *:not(#root) { display: none; } .no-print { display: none !important; } #quote-preview * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }`}</style>
         </div>
       )}
     </div>
